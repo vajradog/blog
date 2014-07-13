@@ -1,0 +1,12 @@
+<div class="large-8 column">
+<%= form_for @post do |f| %>
+<h3><%= f.label :title %></h3>
+<%= f.text_field :title %> <br>
+<h3><%= f.label :body %></h3>
+<%= f.text_area :body %> <br>
+<%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+    <%= cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text}%>
+  <% end %>
+<%= f.submit(@post.new_record? ? "create post" : "Update Post") %>
+<% end %>
+</div>

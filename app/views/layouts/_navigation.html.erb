@@ -1,0 +1,30 @@
+<% cache do %>
+<div class="row">
+  <div class="large-4 column">
+    <%= image_tag('thupten.png')%>
+
+    <ul class="vcard">
+      <li class="fn">@vajradog</li>
+      <li class="locality">Thupten N. Chakrishar <br>is a Tibetan living in New York.</li>
+      <li class="email"><a href="#">##@example.com</a></li>
+    </ul> 
+    <% if logged_in? %>
+    <%= link_to "Logout: #{current_user.username}", logout_path, class: "button [alert]" %>
+    <% end %>
+
+    <br>
+    <h5 class="subheader">Here he writes about:</h5>
+      <% Category.all.each do |c| %>
+      <li><%= link_to c.name, category_path(c) %></li> <br>
+      <% end %>
+
+    <h5 class="subheader">More links:</h5>
+      <li class="bullet-item">Postfolio</li> <br>
+      <li class="bullet-item">Resume</li>
+      <br>
+</div>
+<% end %>
+
+
+
+

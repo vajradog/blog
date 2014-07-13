@@ -1,0 +1,62 @@
+<!--
+<a href="#" data-dropdown="hover1" data-options="is_hover:true">Select Categories</a>
+
+<ul id="hover1" class="f-dropdown" data-dropdown-content>
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>
+-->
+<div class="large-8 column">
+  <% @posts.each do |post|%>
+  <% post.categories.each do |cat| %>
+    <%= link_to cat.name, category_path(cat) %>
+  <% end %>
+    <h4><%= link_to post.title, post_path(post) %></h4>
+       <p><%=raw post.body %></p> 
+    <!-- could use truncate to trim the body -->
+    <hr>
+  <% end %>
+  <br><br>
+
+  <%= will_paginate @posts, :page_links => true %>
+
+  <br><br>
+</div>
+
+    <div class="row">
+      <div class="large-12 column">
+        <hr>
+        <h6>May I also suggest:</h6>
+        <hr>
+       </div>
+   </div>
+
+  <div class="row">
+    <div class="large-12 column">
+      <div class="large-4 column">
+        <h5 class="subheader">Web Development</h5>
+          <% @posts.each do |post|%>
+            <li><%= link_to post.title, post_path(post) %></li><br>
+          <% end %>
+      </div>
+
+      <div class="large-4 column">
+        <h5 class="subheader">Life in General</h5>
+          <% @posts.each do |post|%>
+            <li><%= link_to post.title, post_path(post) %></li><br>
+          <% end %>
+      </div>
+
+      <div class="large-4 column">
+        <h5 class="subheader">Web Development</h5>
+          <% @posts.each do |post|%>
+            <li><%= link_to post.title, post_path(post) %></li><br>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+<hr>
+
+
