@@ -8,7 +8,7 @@
       <li class="locality">Thupten N. Chakrishar <br>is a Tibetan living in New York.</li>
       <li class="email"><a href="#">##@example.com</a></li>
     </ul> 
-    <% if logged_in? %>
+    <% unless logged_in? %>
     <%= link_to "Logout: #{current_user.username}", logout_path, class: "button [alert]" %>
     <% end %>
 
