@@ -3,8 +3,7 @@
   <div class="large-4 column">
     <%= link_to image_tag('thupten.png'), root_path%>
   <dl>
-    <dt>@vajradog</dt>
-    <dd>Thupten N Chakrishar is a Tibetan living in New York.</dd>
+    <blockquote>@vajradog <br>Thupten N Chakrishar is a Tibetan living in New York.</blockquote>
 <% end %>
 
     <% if logged_in? %>
@@ -15,20 +14,19 @@
   </dl>
     <% end %>
 
-  <h5 class="subheader">Here he writes about:</h5>
+  <h6 class="subheader"><i>Here he writes about:</i></h6>
     <% Category.all.each do |c| %>
-      <li><%= link_to c.name, category_path(c) %> <br>
+      <li><%= link_to c.name, category_path(c) %>
       <% if logged_in? %>
         <small><%= link_to 'edit |', edit_category_path(c)%>
         <%= link_to 'delete', c, method: :delete, data: {confirm: "are you sure?"} %></small></li>
       <% end %> 
       <br>
     <% end %>
-
-
-  <h5 class="subheader">More links:</h5>
-    <li class="bullet-item">Portfolio</li> <br>
-    <li class="bullet-item">Resume</li>
+      <br>
+  <h6 class="subheader"><i>More links:</i></h6>
+    <li>Portfolio</li>
+    <li>Resume</li>
     <br>
 </div>
 
