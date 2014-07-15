@@ -1,3 +1,10 @@
+<ul class="breadcrumbs">
+  <li><%= link_to 'Home', root_path %></li>
+  <% @post.categories.each do |cat| %>
+   <li><%= link_to cat.name, category_path(cat) %></li><% end %>
+  <li><%= @post.title %></li>
+</ul>
+
 <div class="large-8 column">
   <h4><%= @post.title%></h4>
   <% if logged_in? %>
