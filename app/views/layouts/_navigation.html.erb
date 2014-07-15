@@ -2,34 +2,33 @@
 <div class="row">
   <div class="large-4 column">
     <%= link_to image_tag('thupten.png'), root_path%>
-
-    <dl>
-  <dt>@vajradog</dt>
-  <dd>Thupten N Chakrishar is a Tibetan living in New York.</dd>
-  <% if logged_in? %>
-    <small>You are logged in</small> <br>
-     <%= link_to "New Post", new_post_path, class: "button success small" %> <br>
-     <%= link_to "Logout: #{current_user.username}", logout_path, class: "button alert small" %>
+  <dl>
+    <dt>@vajradog</dt>
+    <dd>Thupten N Chakrishar is a Tibetan living in New York.</dd>
+    <% if logged_in? %>
+      <small>You are logged in</small> <br>
+       <%= link_to "New Post", new_post_path, class: "button success small" %> <br>
+       <%= link_to "Logout: #{current_user.username}", logout_path, class: "button alert small" %> <br>
+       <%= link_to "New Category", new_category_path, class: "button secondary small" %>
     <% end %>
-</dl>
+  </dl>
     <% end %>
-    
 
-    <br>
-    <h5 class="subheader">Here he writes about:</h5>
-      <% Category.all.each do |c| %>
-      <li><%= link_to c.name, category_path(c) %>
+  <h5 class="subheader">Here he writes about:</h5>
+    <% Category.all.each do |c| %>
+      <li><%= link_to c.name, category_path(c) %> <br>
       <% if logged_in? %>
-      <small><%= link_to 'edit |', edit_category_path(c)%>
-      <%= link_to 'delete', c, method: :delete, data: {confirm: "are you sure?"} %></small></li>
+        <small><%= link_to 'edit |', edit_category_path(c)%>
+        <%= link_to 'delete', c, method: :delete, data: {confirm: "are you sure?"} %></small></li>
       <% end %> 
       <br>
-      <% end %>
+    <% end %>
 
-    <h5 class="subheader">More links:</h5>
-      <li class="bullet-item">Postfolio</li> <br>
-      <li class="bullet-item">Resume</li>
-      <br>
+
+  <h5 class="subheader">More links:</h5>
+    <li class="bullet-item">Portfolio</li> <br>
+    <li class="bullet-item">Resume</li>
+    <br>
 </div>
 
 

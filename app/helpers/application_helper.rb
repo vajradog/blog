@@ -4,7 +4,7 @@ module ApplicationHelper
   #  dt.strftime("%B %e")
   #end
 
-  #def word_count(post)
+  # def word_count(post)
    #  (post.body.to_s.split.size  / 214).round
   #end
 

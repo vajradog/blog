@@ -9,13 +9,15 @@ Not 100% happy with the layout but works for now.
 - change root DONE
 - categories DONE
 - slugging DONE
+- add some delete functions - DONE
 
-- pagination on show page isn't working correctly
+- pagination on show page isn't working correctly - Kinda Solved
 
-- add some delete functions
 
-- clean up routes
-- clean up layout
+- clean up routes - Kinda DONE
+
+- clean up layout - Doing
+
 - truncate
 - embed
 - minutes to read

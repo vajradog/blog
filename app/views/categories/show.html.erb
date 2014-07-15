@@ -1,16 +1,11 @@
 <div class="large-8 column">
 <% @category.posts.each do |post|%>
-<h4><%= link_to post.title, post_path(post)%></h4>
-<% if logged_in? %>
-<small><%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
+  <h4><%= link_to post.title, post_path(post)%></h4>
+  <% if logged_in? %>
+  <small><%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
 <% end %>
-    <p><%=raw post.body %></p>
-    <hr>
-<% end %>
-</div>
 
-<%# @category.posts.each do |post|%>
-  <h4><%#= link_to post.title, post_path(post) %></h4>
-  <p><%#= post.body.html_safe if post.body %></p>
-<%# end %>
+  <p><%=raw post.body %></p>
+  <hr>
+<% end %>
 </div>

@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def access_denied
-    flash[:error] = "Sorry only vajradog can do that"
+    flash[:error] = 'Sorry only vajradog can do that'
     redirect_to root_path
   end
 end

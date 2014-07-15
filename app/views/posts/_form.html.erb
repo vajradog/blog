@@ -1,18 +1,14 @@
 <div class="large-8 column">
-<%= link_to 'Add a new category?', new_category_path %>
-<%= form_for @post do |f| %>
-<h3><%= f.label :title %></h3>
-<%= f.text_field :title %> <br>
-<h3><%= f.label :body %></h3>
-<%= f.text_area :body %> <br>
-
-
-<%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-
-    <%= cb.label(class: "radio") {cb.check_box(class: "radio") + cb.text}%>
-
+  <%= link_to 'Add a new category?', new_category_path %>
+  <%= form_for @post do |f| %>
+    <h3><%= f.label :title %></h3>
+    <%= f.text_field :title %> <br>
+    <h3><%= f.label :body %></h3>
+    <%= f.text_area :body %> <br>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+      <%= cb.label(class: "radio") {cb.check_box(class: "radio") + cb.text}%>
+    <% end %>
+    <%= f.submit(@post.new_record? ? "create post" : "Update Post") %>
   <% end %>
-<%= f.submit(@post.new_record? ? "create post" : "Update Post") %>
-<% end %>
 </div>
 

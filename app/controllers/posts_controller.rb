@@ -1,10 +1,9 @@
 class PostsController < ApplicationController
-    before_action :require_admin, except: [:index, :show]
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_admin, except: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 6).order("created_at desc")
+    @posts = Post.paginate(page: params[:page], per_page: 6).order('created_at desc')
   end
 
   def new
@@ -14,10 +13,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new (post_params)
     if @post.save
-      flash[:notice] = "New post was created"
+      flash[:notice] = 'New post was created'
       redirect_to posts_path
     else
-      flash[:error] = "Post could not be created"
+      flash[:error] = 'Post could not be created'
       render 'new'
     end
   end
@@ -39,7 +38,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:notice]="The post was deleted"
+    flash[:notice] = 'The post was deleted'
     redirect_to root_path
   end
 

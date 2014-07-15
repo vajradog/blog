@@ -1,8 +1,8 @@
 Personal::Application.routes.draw do
 root to: 'posts#index'
 resources :posts
-resources :users
-resources :categories
+resources :users, except: [:index, :edit, :update, :destroy, :show]
+resources :categories, except: [:index]
 
   get '/register', to: 'users#new'
   get '/login', to: 'sessions#new'

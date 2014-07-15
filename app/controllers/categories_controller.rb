@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      flash[:notice] = "The new Category was saved"
+      flash[:notice] = 'The new Category was saved'
       redirect_to root_path
     else
       render 'new'
@@ -32,17 +32,17 @@ class CategoriesController < ApplicationController
     @category = Category.find_by(slug: params[:id])
 
     if @category.update(category_params)
-      flash[:notice] = "Category name updated"
+      flash[:notice] = 'Category name updated'
       redirect_to root_path
     else
       render 'edit'
-  end
+    end
   end
 
   def destroy
     @category = Category.find_by(slug: params[:id])
     @category.destroy
-    flash[:notice] = "Category name destroyed"
+    flash[:notice] = 'Category name destroyed'
     redirect_to root_path
   end
 
@@ -51,4 +51,5 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:name)
   end
+  
 end
