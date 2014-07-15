@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "You have logged in #{current_user.username}"
       redirect_to root_path
     else
-      flash[:error] = 'Something went wrong bro'
+      flash[:error] = 'Access Denied.'
       redirect_to login_path
     end
   end
