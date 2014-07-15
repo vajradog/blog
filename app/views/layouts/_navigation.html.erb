@@ -1,22 +1,29 @@
 <% cache do %>
 <div class="row">
   <div class="large-4 column">
-    <%= image_tag('thupten.png')%>
+    <%= link_to image_tag('thupten.png'), root_path%>
 
-    <ul class="vcard">
-      <li class="fn">@vajradog</li>
-      <li class="locality">Thupten N. Chakrishar <br>is a Tibetan living in New York.</li>
-      <li class="email"><a href="#">##@example.com</a></li>
-    </ul> 
+    <dl>
+  <dt>@vajradog</dt>
+  <dd>Thupten N Chakrishar is a Tibetan living in New York.</dd>
+  <% if logged_in? %>
+    <small>You are logged in</small> <br>
+     <%= link_to "New Post", new_post_path, class: "button success small" %> <br>
+     <%= link_to "Logout: #{current_user.username}", logout_path, class: "button alert small" %>
     <% end %>
-    <% if logged_in? %>
-    <%= link_to "Logout: #{current_user.username}", logout_path, class: "button [alert]" %>
+</dl>
     <% end %>
+    
 
     <br>
     <h5 class="subheader">Here he writes about:</h5>
       <% Category.all.each do |c| %>
-      <li><%= link_to c.name, category_path(c) %></li> <br>
+      <li><%= link_to c.name, category_path(c) %>
+      <% if logged_in? %>
+      <small><%= link_to 'edit |', edit_category_path(c)%>
+      <%= link_to 'delete', c, method: :delete, data: {confirm: "are you sure?"} %></small></li>
+      <% end %> 
+      <br>
       <% end %>
 
     <h5 class="subheader">More links:</h5>

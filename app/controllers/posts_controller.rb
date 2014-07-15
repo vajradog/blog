@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     before_action :require_admin, except: [:index, :show]
-    before_action :set_post, only: [:show, :edit, :update]
+    before_action :set_post, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -35,6 +35,12 @@ class PostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @post.destroy
+    flash[:notice]="The post was deleted"
+    redirect_to root_path
   end
 
   private

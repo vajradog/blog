@@ -10,9 +10,12 @@
 <div class="large-8 column">
   <% @posts.each do |post|%>
   <% post.categories.each do |cat| %>
-    <%= link_to cat.name, category_path(cat) %>
+  <span class="secondary label"><%= link_to cat.name, category_path(cat) %></span>
   <% end %>
     <h4><%= link_to post.title, post_path(post) %></h4>
+    <% if logged_in? %>
+      <%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
+      <% end%>
        <p><%=raw post.body %></p> 
     <!-- could use truncate to trim the body -->
     <hr>
