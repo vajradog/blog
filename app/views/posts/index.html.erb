@@ -8,7 +8,7 @@
     <% if logged_in? %>
       <%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
       <% end%>
-    <p><%=raw post.body %></p> 
+    <p><%= markdown(post.body) %></p> 
     <!-- could use truncate to trim the body -->
     <hr>
   <% end %>
@@ -52,5 +52,4 @@
   </div>
 
 <hr>
-
 

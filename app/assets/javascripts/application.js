@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
+// require turbolinks, I have disabled it tempararily for gist embeds.
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

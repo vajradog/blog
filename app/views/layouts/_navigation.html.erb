@@ -16,7 +16,7 @@
 
   <h6 class="subheader"><i>Here he writes about:</i></h6>
     <% Category.all.each do |c| %>
-      <li><%= link_to c.name, category_path(c) %>
+      <li class = "active"><%= link_to c.name, category_path(c) %>
       <% if logged_in? %>
         <small><%= link_to 'edit |', edit_category_path(c)%>
         <%= link_to 'delete', c, method: :delete, data: {confirm: "are you sure?"} %></small></li>
@@ -29,7 +29,6 @@
     <li>Resume</li>
     <br>
 </div>
-
 
 
 

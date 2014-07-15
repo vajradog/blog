@@ -1,3 +1,7 @@
+<ul class="breadcrumbs">
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= @category.name %></li>
+</ul>
 <div class="large-8 column">
 <% @category.posts.each do |post|%>
   <h4><%= link_to post.title, post_path(post)%></h4>
@@ -5,7 +9,29 @@
   <small><%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
 <% end %>
 
-  <p><%=raw post.body %></p>
+  <p><%= markdown(post.body) %></p>
   <hr>
 <% end %>
 </div>
+
+
+<div class="row">
+    <div class="large-12 column">
+      <hr>
+      <h6>May I also suggest:</h6>
+      <hr>
+    </div>
+</div>
+
+  <div class="row">
+    <div class="large-12 column">
+      <div class="large-4 column">
+        <h5 class="subheader">Web Development</h5>
+          <li>kk</li>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+<hr>

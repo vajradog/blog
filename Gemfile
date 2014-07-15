@@ -16,6 +16,7 @@ gem 'rack-zippy'
 gem 'rubocop', require: false
 gem 'zurb-foundation'
 gem 'will_paginate'
+gem 'redcarpet'
 
 group :doc do
   gem 'sdoc', require: false
