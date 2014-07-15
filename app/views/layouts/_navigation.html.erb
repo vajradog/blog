@@ -5,12 +5,13 @@
   <dl>
     <dt>@vajradog</dt>
     <dd>Thupten N Chakrishar is a Tibetan living in New York.</dd>
+<% end %>
+
     <% if logged_in? %>
       <small>You are logged in</small> <br>
        <%= link_to "New Post", new_post_path, class: "button success small" %> <br>
        <%= link_to "Logout: #{current_user.username}", logout_path, class: "button alert small" %> <br>
        <%= link_to "New Category", new_category_path, class: "button secondary small" %>
-    <% end %>
   </dl>
     <% end %>
 
