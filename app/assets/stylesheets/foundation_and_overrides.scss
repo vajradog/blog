@@ -64,7 +64,7 @@ $em-base: 16px !default;
 $default-float: left;
 
 // $body-bg: #fff;
-   $body-font-color: #444444;
+   $body-font-color: #726E6E;
    $body-font-family: 'Droid Serif', serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -799,10 +799,10 @@ $default-float: left;
 
 // We use these to style the label text
 
-// $label-font-sizing: em-calc(14);
-// $label-font-weight: bold;
-// $label-font-color: #333;
-// $label-font-color-alt: #fff;
+   $label-font-sizing: em-calc(13);
+   $label-font-weight: normal;
+   $label-font-color: #fff;
+   $label-font-color-alt: #fff;
 
 //
 // Magellan Variables
@@ -1327,3 +1327,8 @@ $default-float: left;
 
 @import 'foundation';
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+
+textarea {
+  height: auto;
+  min-height: 200px;
+}
