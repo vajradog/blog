@@ -22,6 +22,7 @@ def markdown(text)
       superscript:        true,
       disable_indented_code_blocks: true,
       strikethrough: true,
+      underline: true,
       prettify: true
 
     }
