@@ -21,7 +21,9 @@ def markdown(text)
       autolink:           true,
       superscript:        true,
       disable_indented_code_blocks: true,
+      strikethrough: true,
       prettify: true
+
     }
 
     renderer = Redcarpet::Render::HTML.new(options)
