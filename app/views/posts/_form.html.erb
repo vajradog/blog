@@ -5,6 +5,8 @@
     <%= f.text_field :title %> <br>
     <h3><%= f.label :body %></h3>
     <%= f.text_area :body %> <br>
+     <h3><%= f.label :excerpt %></h3>
+    <%= f.text_area :excerpt %> <br>
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
       <%= cb.label(class: "radio") {cb.check_box(class: "radio") + cb.text}%>
     <% end %>
