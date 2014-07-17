@@ -20,7 +20,7 @@ Posted in
     <% if logged_in? %>
       <br><%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
       <% end%>
-    <p><%= markdown(post.excerpt) %> <em><%= link_to '...read more', post_path(post), class: "subheader" %></em> </p>
+    <p><%= markdown(post.excerpt) if post.excerpt %> <em><%= link_to '...read more', post_path(post), class: "subheader" %></em> </p>
     <!-- could use truncate to trim the body but I went with an excerpt -->
     <hr>
   <% end %>
