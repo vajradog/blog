@@ -1,15 +1,27 @@
 <div class="large-8 column">
   <% @posts.each do |post|%>
-  <% post.categories.each do |cat| %>
-    <span class="secondary label"><%= link_to cat.name, category_path(cat) %></span>
-  <% end %>
+    <h4><%= link_to post.title, post_path(post) %> <br>
 
-    <h4><%= link_to post.title, post_path(post) %></h4>
+    <small>
+Posted in 
+    <%= post.categories.map do |cat| %>
+     <% link_to cat.name, category_path(cat)%>
+      <% end.to_sentence.html_safe %>
+      on
+      <%= display_datetime(post.created_at)%>.
+
+      <% if word_count(post) == 0 %>
+      Less than a minute read.
+       <% else %>
+      <i>Approximately <%= pluralize(word_count(post), 'minute')%> read.</i>
+      <%end%>
+      </small></h4>
+
     <% if logged_in? %>
-      <%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
+      <br><%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
       <% end%>
-    <p><%= markdown(post.body) %></p> 
-    <!-- could use truncate to trim the body -->
+    <p><%= markdown(post.excerpt) %> <em><%= link_to '...read more', post_path(post), class: "subheader" %></em> </p>
+    <!-- could use truncate to trim the body but I went with an excerpt -->
     <hr>
   <% end %>
   <br><br>

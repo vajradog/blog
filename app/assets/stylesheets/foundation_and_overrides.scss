@@ -1325,14 +1325,14 @@ $default-float: left;
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
 
-@import 'foundation';
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+
 
 textarea {
   height: auto;
   min-height: 200px;
 }
 
+<<<<<<< HEAD
 hr2 {
   border-width: 4px;
   border-style: solid;
@@ -1348,3 +1348,7 @@ introabout {
   font-size: 0.8125em;
   color: #777777;
 }
+=======
+@import 'foundation';
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+>>>>>>> excerpt
