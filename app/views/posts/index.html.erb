@@ -1,37 +1,30 @@
-<div class="large-8 column">
+<div class="large-12 columns"> 
+<div class="large-9 large-centered columns">
   <% @posts.each do |post|%>
-    <h4><%= link_to post.title, post_path(post) %></h4>
-   
- <postmeta>Posted in 
-   <%= post.categories.map do |cat| %>
-     <% link_to cat.name, category_path(cat)%>
-      <% end.to_sentence.html_safe %>
-      on
-      <%= display_datetime(post.created_at)%>.
+   <%= image_tag('separator.png') %>
+    <h4><%= link_to post.title, post_path(post) %> <br>
 
+     <% if logged_in? %>
+     <small> <%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small> <br>
+      <% end%> 
+
+    <subheader>Posted on <%= display_datetime(post.created_at)%>.
        <% if word_count(post) == 0 %>
       Less than a minute read.
        <% else %>
       <i>Approximately <%= pluralize(word_count(post), 'minute')%> read.</i>
-      <%end%>
+      <%end%></subheader></h4>
 
-       </postmeta>
-
-    <% if logged_in? %>
-      <br><%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
-      <% end%>
-
-    <p><%= markdown(post.excerpt) if post.excerpt %> <em><%= link_to '...read full post', post_path(post)%></em> </p>
-
-    
-    <!-- could use truncate to trim the body but I went with an excerpt -->
-    <hr>
+ <%= markdown(post.excerpt) if post.excerpt %> <i><%= link_to '...read full post', post_path(post)%></i>
+   <hr>
   <% end %>
+
+    <!-- could use truncate to trim the body but I went with an excerpt -->
   <br><br>
 <%= will_paginate @posts, :page_links => true %>
   <br><br>
 </div>
-
+</div>
 <!--
 
   <div class="row">

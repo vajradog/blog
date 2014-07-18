@@ -22,19 +22,10 @@
   </head>
 
   <body >
-    <% cache do %>
-      <div class="row">
-      <div class="large-12 column text-center">
-      <%= image_tag('branch.png') %> 
-    <% end %>
-
+    <%= render 'layouts/navigation' %>
     <% flash.each do |name, msg| %>
       <div data-alert class="alert-box warning"><%= msg %> </div>
     <% end %>
-      </div>
-    </div>
-
-    <%= render 'layouts/navigation' %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
        <%= render 'layouts/footer' %>

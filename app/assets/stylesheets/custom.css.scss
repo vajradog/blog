@@ -1,0 +1,48 @@
+/* Default Link Styles */
+/* line 152, /Users/vajradog/.rvm/gems/ruby-2.1.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_type.scss */
+
+
+h4 {
+  text-align: center;
+  color: #444444;
+  font-size: 2em;
+  line-height:90%;
+  > a {
+  color: #444444;
+  text-align:center;
+  }
+  > subheader {
+  color: #999;
+  font-size: 40%;
+  font-style: italic;
+  font-weight: normal;
+  }
+}
+
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+  color: #477b96;
+  text-decoration: none;
+  line-height: inherit;
+}
+
+
+/* line 158, /Users/vajradog/.rvm/gems/ruby-2.1.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_type.scss */
+a:hover, a:focus {
+  color: #2795b6;
+}
+
+introabout {
+  padding: 0.5625em;
+  display: block;
+  color: #999;
+  line-height: 150%;
+
+}
+

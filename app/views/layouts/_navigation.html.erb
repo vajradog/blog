@@ -1,35 +1,26 @@
-<% cache do %>
-<div class="row">
-  <div class="large-4 column">
-    <%= link_to image_tag('thupten.png'), root_path%>
-  <dl>
-    <introabout>@vajradog <br>Thupten N Chakrishar is a Tibetan living in New York.</introabout>
-<% end %>
+<br>
+<div class="large-12 columns">
+<div class="large-8 large-centered columns text-center" >
+    <%= link_to image_tag('thupten.png'), root_path %>
+   <introabout> @vajradog <i>aka Thupten N. Chakrishar is a Tibetan living in New York.</i></introabout>
 
-    <% if logged_in? %>
+     <%= Category.all.map do |cat| %>
+     <% link_to cat.name, category_path(cat)%>
+      <% end.to_sentence(:words_connector => ' - ', :last_word_connector => ' - ').html_safe %>
+      <hr>
+
+<!--
+      <#% if logged_in? %>
+        <small><#%= link_to 'edit |', edit_category_path(cat)%>
+        <#%= link_to 'delete', method: :delete, data: {confirm: "are you sure?"} %></small></li>
+      <#% end %> 
+-->
+
+ <% if logged_in? %>
       <small>You are logged in</small> <br>
-       <%= link_to "New Post", new_post_path, class: "button success small" %> <br>
-       <%= link_to "Logout: #{current_user.username}", logout_path, class: "button alert small" %> <br>
+       <%= link_to "New Post", new_post_path, class: "button success small" %> 
+       <%= link_to "Logout: #{current_user.username}", logout_path, class: "button alert small" %> 
        <%= link_to "New Category", new_category_path, class: "button secondary small" %>
-  </dl>
     <% end %>
-
-  <h6 class="subheader"><i>Here he writes about:</i></h6>
-    <% Category.all.each do |c| %>
-      <li class = "active"><%= link_to c.name, category_path(c) %>
-      <% if logged_in? %>
-        <small><%= link_to 'edit |', edit_category_path(c)%>
-        <%= link_to 'delete', c, method: :delete, data: {confirm: "are you sure?"} %></small></li>
-      <% end %> 
-      <br>
-    <% end %>
-      <br>
-  <!--<h6 class="subheader"><i>More links:</i></h6>
-    <li>Portfolio</li>
-    <li>Resume</li>
-    <br>-->
 </div>
-
-
-
 
