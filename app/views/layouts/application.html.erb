@@ -23,9 +23,7 @@
 
   <body >
     <%= render 'layouts/navigation' %>
-    <% flash.each do |name, msg| %>
-      <div data-alert class="alert-box warning"><%= msg %> </div>
-    <% end %>
+    <%= render 'layouts/flashmsg'%>
     <%= yield %>
     <%= javascript_include_tag "application" %>
     <%= render 'layouts/footer' %>
