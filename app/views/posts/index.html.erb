@@ -1,29 +1,31 @@
 <div class="large-12 columns"> 
-<div class="large-9 large-centered columns">
-  <% @posts.each do |post|%>
-   <%= image_tag('separator.png') %>
-    <h4><%= link_to post.title, post_path(post) %> <br>
+  <div class="large-9 large-centered columns">
+    <% @posts.each do |post|%>
+      <%= image_tag('separator.png') %>
+      <h4><%= link_to post.title, post_path(post) %> <br>
 
-     <% if logged_in? %>
-     <small> <%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small> <br>
-      <% end%> 
+      <% if logged_in? %>
+        <small> <%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small> <br>
+      <% end %> 
 
-    <subheader>Posted on <%= display_datetime(post.created_at)%>.
-       <% if word_count(post) == 0 %>
-      Less than a minute read.
-       <% else %>
-      <i>Approximately <%= pluralize(word_count(post), 'minute')%> read.</i>
-      <%end%></subheader></h4>
+      <subheader>Posted on <%= display_datetime(post.created_at)%>.
+      <% if word_count(post) == 0 %>
+        Less than a minute read.
+      <% else %>
+        <i>Approximately <%= pluralize(word_count(post), 'minute')%> read.</i>
+      <% end %>
+      </subheader>
+      </h4>
 
- <%= markdown(post.excerpt) if post.excerpt %> <i><%= link_to '...read full post', post_path(post)%></i>
-   <hr>
-  <% end %>
+      <%= markdown(post.excerpt) if post.excerpt %> <i><%= link_to '...read full post', post_path(post)%></i>
+      <hr>
+    <% end %>
 
     <!-- could use truncate to trim the body but I went with an excerpt -->
-  <br><br>
-<%= will_paginate @posts, :page_links => true %>
-  <br><br>
-</div>
+    <br><br>
+    <%= will_paginate @posts, :page_links => true %>
+    <br><br>
+  </div>
 </div>
 <!--
 

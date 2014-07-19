@@ -1,11 +1,13 @@
-<div class="large-4 column">
-  <%= form_for @user do |form| %>
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-    <%= form.submit %>
-  <% end %>
+<div class="large-12 columns"> 
+  <div class="large-5 large-centered columns">
+    <%= form_for @user do |form| %>
+      <%= form.label :username %>
+      <%= form.text_field :username %>
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+      <%= form.submit %>
+    <% end %>
+  </div>
 </div>

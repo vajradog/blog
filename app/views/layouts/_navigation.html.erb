@@ -1,13 +1,14 @@
 <br>
 <div class="large-12 columns">
-<div class="large-8 large-centered columns text-center" >
+  <div class="large-8 large-centered columns text-center" >
     <%= link_to image_tag('thupten.png'), root_path %>
-   <introabout> @vajradog <i>aka Thupten N. Chakrishar is a Tibetan living in New York.</i></introabout>
+    <introabout> @vajradog <i>aka Thupten N. Chakrishar is a Tibetan living in New York.</i></introabout>
 
-     <%= Category.all.map do |cat| %>
-     <% link_to cat.name, category_path(cat)%>
-      <% end.to_sentence(:words_connector => ' - ', :last_word_connector => ' - ').html_safe %>
-      <hr>
+    <%= Category.all.map do |cat| %>
+      <% link_to cat.name, category_path(cat)%>
+    <% end.to_sentence(:words_connector => ' - ', :last_word_connector => ' - ').html_safe %>
+    
+    <hr>
 
 <!--
       <#% if logged_in? %>
@@ -16,11 +17,11 @@
       <#% end %> 
 -->
 
- <% if logged_in? %>
+    <% if logged_in? %>
       <small>You are logged in</small> <br>
-       <%= link_to "New Post", new_post_path, class: "button success small" %> 
-       <%= link_to "Logout: #{current_user.username}", logout_path, class: "button alert small" %> 
-       <%= link_to "New Category", new_category_path, class: "button secondary small" %>
+      <%= link_to "New Post", new_post_path, class: "button success small" %> 
+      <%= link_to "Logout: #{current_user.username}", logout_path, class: "button alert small" %> 
+      <%= link_to "New Category", new_category_path, class: "button secondary small" %>
     <% end %>
 </div>
 

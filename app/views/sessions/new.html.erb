@@ -1,12 +1,14 @@
-<div class="large-4 column">
-   <%= link_to "You have entered a restricted area. If you have come here by mistake, please click here to go back.", root_path, class: "button alert small" %> <br><br>
+<div class="large-12 columns"> 
+  <div class="large-5 large-centered columns">
+    <%= link_to "You have entered a restricted area. If you have come here by mistake, please click here to go back.", root_path, class: "button alert small" %> <br><br>
 
-  <%= form_tag '/login' do %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username, params[:username]%> <br>
-    <%= label_tag :password%>
-    <%= password_field_tag :password, params[:password]%>
-    <br>
-    <%= submit_tag 'Log in', class: 'button small'%>
-  <% end %>
+    <%= form_tag '/login' do %>
+      <%= label_tag :username %>
+      <%= text_field_tag :username, params[:username]%> <br>
+      <%= label_tag :password%>
+      <%= password_field_tag :password, params[:password]%>
+      <br>
+      <%= submit_tag 'Log in', class: 'button small'%>
+    <% end %>
+  </div>
 </div>

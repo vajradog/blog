@@ -1,18 +1,20 @@
 <div class="large-12 columns"> 
-<div class="large-9 large-centered columns">
-<h4>Category: <%= @category.name %></h4>
-<hr>
+  <div class="large-9 large-centered columns">
+    <h4>Category: <%= @category.name %></h4>
+    <hr>
 
-<% @category.posts.each do |post|%>
-<%= image_tag('separator.png') %>
-  <h4><%= link_to post.title, post_path(post)%></h4>
-  <% if logged_in? %>
-  <small><%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
-<% end %>
- <%= markdown(post.excerpt) if post.excerpt %> <i><%= link_to '...read full post', post_path(post)%></i>
-  <hr>
-<% end %>
-</div>
+    <% @category.posts.each do |post|%>
+      <%= image_tag('separator.png') %>
+      <h4><%= link_to post.title, post_path(post)%></h4>
+
+      <% if logged_in? %>
+        <small><%= link_to 'edit', edit_post_path(post)%> | <%= link_to 'delete', post, method: :delete, data: { confirm: "are you sure?"}%></small>
+      <% end %>
+
+      <%= markdown(post.excerpt) if post.excerpt %> <i><%= link_to '...read full post', post_path(post)%></i>
+      <hr>
+    <% end %>
+  </div>
 </div>
 
 <!-- CURRENTLY NO CATEGORY PAGE PAGINATION
