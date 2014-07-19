@@ -1,7 +1,11 @@
 <div class="large-12 columns"> 
   <div class="large-9 large-centered columns">
     <% @posts.each do |post|%>
+    
+      <% cache do %>
       <%= image_tag('separator.png') %>
+      <% end %>
+
       <h4><%= link_to post.title, post_path(post) %> <br>
 
       <% if logged_in? %>
