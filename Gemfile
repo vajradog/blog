@@ -17,6 +17,8 @@ gem 'rubocop', require: false
 gem 'zurb-foundation'
 gem 'will_paginate'
 gem 'redcarpet'
+gem 'newrelic_rpm'
+
 
 group :doc do
   gem 'sdoc', require: false
