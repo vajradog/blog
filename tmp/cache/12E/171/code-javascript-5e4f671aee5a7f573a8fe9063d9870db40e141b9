@@ -1,0 +1,3 @@
+o: ActiveSupport::Cache::Entry:@valueI":<div class="highlight"><pre><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s2">&quot;JavaScript syntax highlighting&quot;</span><span class="p">;</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+</pre></div>:ET:@created_atf1407241756.918176:@expires_in0
