@@ -1,0 +1,9 @@
+o: ActiveSupport::Cache::Entry:@valueI"É<div class="highlight"><pre><span class="k">class</span> <span class="n">HTMLwithPygments</span> &lt; <span class="n">Redcarpet::Render::HTML</span>
+    <span class="n">def</span> <span class="n">block_code</span>(<span class="n">code</span>, <span class="n">language</span>)
+      <span class="n">sha</span> = <span class="n">Digest::SHA1</span>.<span class="n">hexdigest</span>(<span class="n">code</span>)
+      <span class="n">Rails</span>.<span class="n">cache</span>.<span class="n">fetch</span> [<span class="s">&quot;code&quot;</span>, <span class="n">language</span>, <span class="n">sha</span>].<span class="nb">join</span>(<span class="s">&#39;-&#39;</span>) <span class="k">do</span>
+        <span class="n">Pygments</span>.<span class="n">highlight</span>(<span class="n">code</span>, <span class="n">lexer:</span> <span class="n">language</span>)
+      <span class="nb">end</span>
+    <span class="nb">end</span>
+  <span class="nb">end</span>
+</pre></div>:ET:@created_atf1407206118.0327501:@expires_in0

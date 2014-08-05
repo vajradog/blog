@@ -17,6 +17,7 @@ gem 'rubocop', require: false
 gem 'zurb-foundation'
 gem 'will_paginate'
 gem 'redcarpet'
+gem 'pygments.rb'
 gem 'newrelic_rpm'
 
 

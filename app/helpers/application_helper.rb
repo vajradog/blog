@@ -4,33 +4,28 @@ module ApplicationHelper
    dt.strftime("%B %e")
  end
 
-def word_count(post)
-  (post.body.to_s.split.size  / 214).round
-end
+  def word_count(post)
+    (post.body.to_s.split.size  / 214).round
+  end
+  class HTMLwithPygments < Redcarpet::Render::HTML
+    def block_code(code, language)
+      sha = Digest::SHA1.hexdigest(code)
+      Rails.cache.fetch ["code", language, sha].join('-') do
+        Pygments.highlight(code, lexer: language)
+      end
+    end
+  end
 
-def markdown(text)
+  def markdown(text)
+    renderer = HTMLwithPygments.new(hard_wrap: true, filter_html: false)
     options = {
-      filter_html:     false,
-      hard_wrap:       true,
+      autolink: true,
       no_intra_emphasis: true,
-      link_attributes: { rel: 'nofollow', target: "_blank" },
-      space_after_headers: true, 
       fenced_code_blocks: true,
-    }
-
-    extensions = {
-      autolink:           true,
-      superscript:        true,
-      disable_indented_code_blocks: true,
+      lax_html_blocks: true,
       strikethrough: true,
-      underline: true,
-      prettify: true
-
+      superscript: true
     }
-
-    renderer = Redcarpet::Render::HTML.new(options)
-    markdown = Redcarpet::Markdown.new(renderer, extensions)
-
-    markdown.render(text).html_safe
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 end
