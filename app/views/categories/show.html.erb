@@ -3,7 +3,7 @@
     <h4>Category: <%= @category.name %></h4>
     <hr>
 
-    <% @category.posts.each do |post|%>
+    <% @category.posts.order('created_at desc').each do |post|%>
       <%= image_tag('separator.png') %>
       <h4><%= link_to post.title, post_path(post)%></h4>
 

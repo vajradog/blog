@@ -43,6 +43,12 @@ a {
   line-height: inherit;
 }
 
+a.namelink {
+  color: gray;
+  text-decoration: none;
+  line-height: inherit;
+}
+
 
 /* line 158, /Users/vajradog/.rvm/gems/ruby-2.1.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_type.scss */
 a:hover, a:focus {
